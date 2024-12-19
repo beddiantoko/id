@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" href="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp%20Image%202024-12-17%20at%2021.35.48.jpeg?raw=true" type="image/x-icon" />
+  <meta property="og:image" content="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp%20Image%202024-12-17%20at%2021.35.48.jpeg?raw=true" />
+    <title>Beranda - Toko Beddian</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #4CAF50; /* Warna hijau */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0; /* Menghilangkan margin default */
+        }
+html {
+            -webkit-user-select: none; /* Nonaktifkan seleksi teks otomatis */
+            -webkit-tap-highlight-color: transparent; /* Nonaktifkan highlight saat menekan layar */
+        }
+ .round-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff; /* Warna latar belakang */
+    border-radius: 50%; /* Membuat kotak bulat */
+    width: 50px; /* Ukuran kotak */
+    height: 50px; /* Ukuran kotak */
+    cursor: pointer; /* Tanda pointer saat diklik */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    position: absolute; /* Menempatkan di tengah halaman */
+    top: 22%; /* Menempatkan di tengah secara vertikal */
+    left: 50%; /* Menempatkan di tengah secara horizontal */
+    transform: translate(-50%, -50%); /* Memindahkan dari posisi top dan left 50% */
+transition: box-shadow 0.3s ease, transform 0.3s ease; /* Efek transisi untuk perubahan bayangan dan transformasi */
+}
+
+.round-icon-container:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Efek bayangan lebih dalam saat mouse hover untuk efek ngambang yang lebih nyata */
+    transform: translate(-50%, -50%) translateY(-10px); /* Menaikkan ikon sedikit untuk efek ngambang */
+}
+
+.round-icon-container i {
+    color: white; /* Sesuaikan warna ikon dengan header */
+    font-size: 24px; /* Ukuran ikon */
+    transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
+}
+
+.round-icon-container:hover i {
+    color: red; /* Warna ikon saat mouse hover untuk efek menarik */
+}
+        .curved-background {
+            position: absolute; /* Posisi relatif terhadap tubuh */
+            width: 100%;
+            height: 100px;
+            background-color: #FFFFFF; /* Warna putih */
+            border-bottom-left-radius: 50% 40px;
+            border-bottom-right-radius: 50% 40px;
+            z-index: 0;
+            top: 0; /* Posisikan di bagian atas halaman */
+            overflow: hidden; /* Menghentikan gambar keluar dari bagian bawah */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            margin-top: 1px;
+            width: 90%;
+            max-width: 200px;
+            background: #FFFFFF;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Pusatkan konten */
+            gap: 5px; /* Jarak antar item */
+        }
+
+        .icon-item {
+    background: #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.icon-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sesuaikan warna latar belakang hover berdasarkan title */
+    background-color: var(--hover-color);
+}
+
+.icon-item a {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+}
+
+.icon-item[title="Karyawan"] {
+    color: #FFFFFF; /* Warna oranye */
+}
+
+.icon-item[title="Absen"] {
+    color: #FFFFFF; /* Warna biru */
+}
+
+.icon-item[title="Pengaturan"] {
+    color: #f44336; /* Warna merah */
+}
+
+.icon-item[title="Laporan"] {
+    color: #f44336; /* Warna hijau */
+}
+
+.icon-item span {
+    font-size: 0.8rem; /* Mengatur ukuran teks span */
+}
+
+.icon-item[title="Karyawan"]:hover {
+    --hover-color: #FFFFFF; /* Warna latar belakang lebih terang untuk "Karyawan" */
+}
+
+.icon-item[title="Absen"]:hover {
+    --hover-color: #FFFFFF; /* Warna latar belakang lebih terang untuk "Absen" */
+}
+
+.icon-item[title="Pengaturan"]:hover {
+    --hover-color: #FFFFFF; /* Warna latar belakang lebih terang untuk "Pengaturan" */
+}
+
+.icon-item[title="Laporan"]:hover {
+    --hover-color: #FFFFFF; /* Warna latar belakang lebih terang untuk "Unduh" */
+}
+
+.icon-item .title {
+    display: none;
+    font-size: 0.6rem; /* Sesuaikan ukuran teks sesuai kebutuhan */
+}
+
+.icon-item.active .title {
+    display: inline-block;
+}
+
+.keterangan {
+            width: 84%;
+            margin-top: 20px;
+            background: #FFFFFF;
+            border-radius: 15px;
+            padding: 9px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: #000000; /* Warna hitam untuk teks */
+        }
+        @keyframes fallDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100px); /* Mulai di atas halaman */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Jatuh ke posisi semula */
+            }
+        }
+
+        .falling-image {
+            width: 190px; /* Perkecil ukuran gambar */
+            animation: fallDown 2s ease-out; /* Animasi jatuh selama 2 detik */
+            display: block;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="curved-background">
+        <img src="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp_Image_2024-12-14_at_07.39.02_9892515b-removebg-preview.png?raw=true" alt="Toko Beddian" class="falling-image">
+    </div>
+<div class="round-icon-container" onclick="closeWindow();">
+    <i class="bi bi-door-open"></i>
+</div>
+
+    <div class="container">
+    <div class="icon-item" aria-label="Karyawan">
+        <a href="karyawann.html">
+            <i class="fas fa-users"></i>
+            <span>Karyawan</span>
+        </a>
+    </div>
+    <div class="icon-item" aria-label="Absen">
+        <a href="#" onclick="openLink('absen.html', 'Absen')">
+            <i class="fas fa-file-alt"></i>
+            <span>Absen</span>
+        </a>
+    </div>
+    <div class="icon-item" aria-label="Pengaturan">
+        <a href="#" onclick="openLink('pengaturan.html', 'Pengaturan')">
+            <i class="fas fa-cogs"></i>
+            <span>Pengaturan</span>
+        </a>
+    </div>
+    <div class="icon-item" aria-label="Laporan">
+        <a href="lapor.html">
+            <i class="fas fa-file-alt"></i>
+            <span>Laporan</span>
+        </a>
+    </div>
+</div>
+
+
+    <div class="keterangan">
+        "jangan sampai lupa untuk absen masuk & pulang"
+    </div>
+    <script>
+            document.querySelectorAll('.icon-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('active');
+    });
+});
+const correctPassword = '010199'; // Define the correct password
+
+function openLink(url, linkName) {
+    const userPassword = prompt(`Masukkan sandi untuk ${linkName}:`); // Prompt the user for a password
+    
+    if (userPassword === correctPassword) {
+        window.location.href = url; // Redirect to the link if the password is correct
+    } else {
+        alert('Sandi salah. Akses tidak diberikan.'); // Alert the user if the password is incorrect
+    }
+}
+
+    function closeWindow() {
+        window.close(); // Langsung menutup tanpa konfirmasi
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" href="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp%20Image%202024-12-17%20at%2021.35.48.jpeg?raw=true" type="image/x-icon" />
+    <meta property="og:image" content="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp%20Image%202024-12-17%20at%2021.35.48.jpeg?raw=true" />
+    <title>Beranda - Toko Beddian</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #4CAF50; /* Warna hijau */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0; /* Menghilangkan margin default */
+            position: relative; /* Menempatkan elemen loading di atas elemen lainnya */
+        }
+html {
+            -webkit-user-select: none; /* Nonaktifkan seleksi teks otomatis */
+            -webkit-tap-highlight-color: transparent; /* Nonaktifkan highlight saat menekan layar */
+        }
+        .round-icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #007bff; /* Warna latar belakang */
+            border-radius: 50%; /* Membuat kotak bulat */
+            width: 50px; /* Ukuran kotak */
+            height: 50px; /* Ukuran kotak */
+            cursor: pointer; /* Tanda pointer saat diklik */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+            position: absolute; /* Menempatkan di tengah halaman */
+            top: 25%; /* Menempatkan di tengah secara vertikal */
+            left: 50%; /* Menempatkan di tengah secara horizontal */
+            transform: translate(-50%, -50%); /* Memindahkan dari posisi top dan left 50% */
+            transition: box-shadow 0.3s ease, transform 0.3s ease; /* Efek transisi untuk perubahan bayangan dan transformasi */
+        }
+
+        .round-icon-container:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Efek bayangan lebih dalam saat mouse hover untuk efek ngambang yang lebih nyata */
+            transform: translate(-50%, -50%) translateY(-10px); /* Menaikkan ikon sedikit untuk efek ngambang */
+        }
+
+        .round-icon-container i {
+            color: white; /* Sesuaikan warna ikon dengan header */
+            font-size: 24px; /* Ukuran ikon */
+            transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
+        }
+
+        .round-icon-container:hover i {
+            color: yellow; /* Warna ikon saat mouse hover untuk efek menarik */
+        }
+
+        .curved-background {
+            position: absolute; /* Posisi relatif terhadap tubuh */
+            width: 100%;
+            height: 100px;
+            background-color: #FFFFFF; /* Warna putih */
+            border-bottom-left-radius: 50% 40px;
+            border-bottom-right-radius: 50% 40px;
+            z-index: 0;
+            top: 0; /* Posisikan di bagian atas halaman */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 0; /* Membuat curve ini mencapai batas kiri halaman */
+        }
+
+        @keyframes fallDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100px); /* Mulai di atas halaman */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Jatuh ke posisi semula */
+            }
+        }
+
+        .falling-image {
+            width: 190px; /* Perkecil ukuran gambar */
+            animation: fallDown 2s ease-out; /* Animasi jatuh selama 2 detik */
+            display: block;
+        }
+
+        .rotating-text {
+            position: absolute;
+            font-size: 24px;
+            color: #fff; /* Warna teks sesuai dengan warna loader */
+            white-space: nowrap;
+            animation: moveText 10s linear infinite; /* Animasi bergerak teks secara horizontal selama 10 detik */
+            text-align: center; /* Untuk menempatkan teks di tengah */
+            display: flex;
+            align-items: center; /* Agar ikon dan teks berada dalam satu baris */
+            gap: 5px; /* Memberikan jarak antara ikon dan teks */
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .loader {
+            position: fixed;
+            top: 32%;
+            left: 42%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            display: none; /* Disembunyikan secara default */
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #048023; /* Dark Green */
+            border-radius: 50%;
+            width: 80px; /* Ukuran lebih kecil */
+            height: 80px; /* Ukuran lebih kecil */
+            animation: spinloader 2s linear infinite;
+        }
+
+        @keyframes spinloader {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="curved-background">
+        <img src="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp_Image_2024-12-14_at_07.39.02_9892515b-removebg-preview.png?raw=true" alt="Toko Beddian" class="falling-image">
+    </div>
+    <div class="round-icon-container" onclick="window.location.href = 'index.html';">
+        <i class="bi bi-house-door"></i>
+    </div>
+
+    <!-- Teks yang berputar -->
+    <div class="rotating-text">
+        <i class="bi bi-person-running" style="margin-right: 8px;"></i> Form Belum Difungsikan
+    </div>
+
+    <div class="loader"></div>
+
+    <script>
+        // Menampilkan loader saat data sedang dimuat
+        function showLoader() {
+            document.querySelector('.loader').style.display = 'block';
+        }
+
+        // Menghilangkan loader setelah data selesai dimuat
+        function hideLoader() {
+            document.querySelector('.loader').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

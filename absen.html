@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Absen</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="icon" href="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp%20Image%202024-12-17%20at%2021.35.48.jpeg?raw=true" type="image/x-icon" />
+  <meta property="og:image" content="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp%20Image%202024-12-17%20at%2021.35.48.jpeg?raw=true" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #4CAF50;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+            -webkit-user-select: none; /* Nonaktifkan seleksi teks otomatis */
+            -webkit-tap-highlight-color: transparent; /* Nonaktifkan highlight saat menekan layar */
+        }
+        .round-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4CAF50; /* Warna latar belakang */
+    border-radius: 50%; /* Membuat kotak bulat */
+    width: 50px; /* Ukuran kotak */
+    height: 50px; /* Ukuran kotak */
+    cursor: pointer; /* Tanda pointer saat diklik */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    position: absolute; /* Menempatkan di tengah halaman */
+    top: 22%; /* Menempatkan di tengah secara vertikal */
+    left: 50%; /* Menempatkan di tengah secara horizontal */
+    transform: translate(-50%, -50%); /* Memindahkan dari posisi top dan left 50% */
+transition: box-shadow 0.3s ease, transform 0.3s ease; /* Efek transisi untuk perubahan bayangan dan transformasi */
+}
+
+.round-icon-container:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Efek bayangan lebih dalam saat mouse hover untuk efek ngambang yang lebih nyata */
+    transform: translate(-50%, -50%) translateY(-10px); /* Menaikkan ikon sedikit untuk efek ngambang */
+}
+
+.round-icon-container i {
+    color: white; /* Sesuaikan warna ikon dengan header */
+    font-size: 24px; /* Ukuran ikon */
+    transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
+}
+
+.round-icon-container:hover i {
+    color: yellow; /* Warna ikon saat mouse hover untuk efek menarik */
+}
+.curved-background {
+            position: absolute; /* Posisi relatif terhadap tubuh */
+            width: 100%;
+            height: 100px;
+            background-color: #FFFFFF; /* Warna putih */
+            border-bottom-left-radius: 50% 40px;
+            border-bottom-right-radius: 50% 40px;
+            z-index: 0;
+            top: 0; /* Posisikan di bagian atas halaman */
+            overflow: hidden; /* Menghentikan gambar keluar dari bagian bawah */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {margin-top: 11rem}
+    /* Menu Icon Section */
+    .menu-icon {
+    display: flex; /* Align items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Space between logo and text */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px 15px; /* Padding around the menu icon */
+    background-color: #ffffff; /* White background for clean look */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.menu-icon:hover {
+    background-color: #fb64e7; /* Slightly darker background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+    transform: scale(1); /* Slightly enlarge on hover */
+}
+
+.menu-icon .menu-icon-toggle {
+    font-size: 1.5rem; /* Larger icon for emphasis */
+    color: #007bff; /* Blue color for the icon */
+}
+    .menu-icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .menu-content {
+      display: none;
+      margin-top: 10px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .menu-content ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      color: #000;
+    }
+
+    .menu-item i {
+      margin-right: 1px;
+      font-size: 24px;
+    }
+
+    .menu-item a {
+      text-decoration: none;
+      color: rgb(20, 18, 18);
+      font-size: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .menu-item a:hover {
+      color: rgb(251, 122, 195);
+      opacity: 0.8;
+    }
+
+    .home i {
+      color: #007bff;
+    }
+
+    .kasir i {
+      color: #28a745;
+    }
+
+    .gudang i {
+      color: #ffc107;
+    }
+
+    .pengumuman i {
+      color: #17a2b8;
+    }
+
+    .absen i {
+      color: #ff5722;
+    }
+
+    .laporan i {
+      color: #6f42c1;
+    }
+    body {
+  background-color: #0d80f3;
+}
+.container-main {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+.info-box {
+  background-color: #f9f9f9;
+  margin: 3px auto;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Center content */
+}
+.form-label {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.form-label i {
+  margin-right: 8px;
+}
+
+.btn-custom {
+  font-size: 0.575rem;              /* Ukuran font sesuai yang diminta */
+  padding: .3rem;                    /* Padding diatur menjadi 0 */
+  border: 1px solid #007bff;       /* Border berwarna biru */
+  color: #007bff;                   /* Warna teks biru */
+  background-color: transparent;    /* Latar belakang transparan */
+  margin-top: 5px;                  /* Margin atas */
+  margin-left: auto;                /* Membuat tombol bergerak ke kanan */
+  margin-right: auto;               /* Membuat tombol bergerak ke kiri */
+  display: block;                   /* Memastikan tombol sebagai blok */
+  border-radius: 4px;   
+}
+
+.btn-custom:hover {
+  background-color: #007bff;
+  color: #ff68c5;
+}
+
+.form-check-label {
+  font-size: 14px;
+}
+
+.icon-blue {
+  color: #007bff;
+}
+
+.icon-green {
+  color: #28a745;
+}
+
+.icon-orange {
+  color: #ff5722;
+}
+
+.icon-yellow {
+  color: #ffc107;
+}
+
+.info-box h3 {
+  margin-bottom: 2px;
+}
+
+.info-box .info-item {
+  margin-bottom: 15px;
+}
+
+.info-box .info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-box .info-item span {
+  display: block;
+  font-weight: bold;
+}
+
+.menu-header {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: center; /* Center text */
+  font-weight: bold;
+  border: 1px solid #007bff;
+}
+.menu-header:hover {
+  background-color: #fe93f4;
+}
+.menu-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+.info-item i {
+  font-size: 24px;
+  margin-right: 15px;
+  color: #007bff;
+}
+
+.info-item p {
+  margin: 0;
+}
+
+h5 {
+  font-size: small;
+}
+
+p {
+  font-size: small;
+}
+/* General info-box styling */
+.info-box-3 {
+  background-color: #f9f9f9;
+  margin: 1px auto;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Center content */
+}
+.info-box-4 {
+    max-width: 10px;
+  background-color: #f9f9f9;
+  margin: 1px auto;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Center content */
+}
+.info-box {
+  max-width: 200px;
+  margin: 5px auto;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+
+
+}
+/* Menu header styling */
+.menu-header {
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Info content (hidden initially) */
+.info-content {
+  display: none;
+  padding-top: 1px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  white-space: nowrap; /* Prevents text from wrapping to new line */
+}
+
+/* Table header styling */
+table thead {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+table thead th {
+  font-weight: bold;
+}
+
+/* Horizontal scrolling for table */
+.info-content {
+  overflow-x: auto; /* Enables horizontal scrolling */
+}
+
+/* Styling for alternate row colors */
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Styling to keep the first row fixed */
+table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+/* Rata kiri khusus untuk kolom NAMA */
+.info-box-3 td:nth-child(2) {
+  text-align: left; /* Rata kiri untuk kolom NAMA */
+}
+/* Smaller font and padding for better fitting on small screens */
+@media (max-width: 768px) {
+  table th, table td {
+    padding: 8px;
+    font-size: 0.8em;
+  }
+}
+.info-box-5 {
+    background-color: #f9f9f9;       /* Warna latar belakang */
+    margin: 10px auto;               /* Margin untuk jarak */
+    padding: 15px;                   /* Padding di dalam box */
+    border-radius: 8px;              /* Sudut membulat */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Bayangan */
+    max-width: 300px;                /* Lebar maksimum */
+}
+
+.header {
+    font-size: 1rem;                 /* Ukuran font header */
+    font-weight: bold;               /* Membuat teks tebal */
+    margin-bottom: 1px;             /* Jarak bawah dari header */
+    text-align: center;              /* Rata tengah untuk header */
+}
+
+.content {
+    font-size: 0.75rem;              /* Ukuran font konten */
+    line-height: 1.5;                /* Jarak antar baris */
+    text-align: justify;              /* Rata kiri dan kanan */
+}
+
+.content ul {
+    list-style: none;                /* Menghapus bullet list */
+    padding: 0;                      /* Menghapus padding */
+    margin: 0;                       /* Menghapus margin */
+}
+
+.content li {
+    margin-bottom: 5px;              /* Jarak antar item */
+    padding-left: 10px;              /* Jarak dari kiri */
+    position: relative;              /* Untuk posisi item */
+    text-align: justify;              /* Mengatur teks dalam li rata justify */
+}
+
+.content li::before {
+    content: counter(item) ". ";     /* Menambahkan nomor sebagai konten */
+    color: #007bff;                  /* Warna nomor */
+    position: absolute;              /* Posisi absolut */
+    left: 0;                         /* Jarak dari kiri */
+}
+
+.content li {
+    counter-increment: item;         /* Menghitung nomor item */
+    text-align: justify;             /* Memastikan teks dalam li rata justify */
+}
+        #menuHeader5 {
+            display: none; /* Menyembunyikan elemen */
+        }
+        .menu-text {
+    font-size: 1.25rem; /* Larger font size for emphasis */
+    font-weight: 700; /* Bold text */
+    color: #333; /* Dark grey color for text */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); /* Subtle text shadow */
+    letter-spacing: 1px; /* Increased letter spacing */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.menu-icon:hover .menu-text {
+    color: #fcfcfd; /* Change text color on hover */
+}
+.hidden {
+  display: none; /* Form tidak ditampilkan */
+}
+@keyframes fallDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100px); /* Mulai di atas halaman */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Jatuh ke posisi semula */
+            }
+        }
+
+        .falling-image {
+            width: 190px; /* Perkecil ukuran gambar */
+            animation: fallDown 2s ease-out; /* Animasi jatuh selama 2 detik */
+            display: block;
+        }
+
+  </style>
+</head>
+<body>
+  <div class="curved-background">
+        <img src="https://github.com/MerpatiQuu/Home/blob/main/WhatsApp_Image_2024-12-14_at_07.39.02_9892515b-removebg-preview.png?raw=true" alt="Toko Beddian" class="falling-image">
+    </div>
+<div class="round-icon-container" onclick="window.location.href = 'index.html';">
+    <i class="bi bi-house-door"></i>
+</div> 
+  <div class="container">
+    <!-- Left Side: Menu -->
+      <div class="info-box">
+        <div class="menu-header" id="menuHeader1">Absen Karyawan</div>
+    <form id="absenceForm" action="https://script.google.com/macros/s/AKfycbwRrCXvVVpdtgKqqhqYITViI6HxYppm04KE4uwID5c-8yjtAYGpxH42odj10ueF-CEt/exec" method="POST">
+      <div class="info-content" id="infoContent1">
+        <label for="name" class="form-label">
+    <i class="bi bi-person icon-blue"></i> Nama
+</label>
+<select id="name" name="nama" class="form-select" required>
+    <option value="" disabled selected>-</option>
+</select>
+
+        <label for="day" class="form-label"><i class="bi bi-calendar-day icon-green"></i> Hari</label>
+        <select id="day" name="hari" class="form-select" required>
+          <option value="" disabled selected>-</option>
+          <option value="Ahad">Ahad</option>
+          <option value="Senin">Senin</option>
+          <option value="Selasa">Selasa</option>
+          <option value="Rabu">Rabu</option>
+          <option value="Kamis">Kamis</option>
+          <option value="Jumat">Jumat</option>
+          <option value="Sabtu">Sabtu</option>
+        </select>
+        <label for="time" class="form-label"><i class="bi bi-clock icon-orange"></i> Waktu</label>
+        <select id="time" name="waktu" class="form-select" required>
+          <option value="" disabled selected>-</option>
+          <option value="Pagi">Pagi</option>
+          <option value="Siang">Siang</option>
+          
+        </select>
+        <label for="remarks" class="form-label"><i class="bi bi-info-circle icon-yellow"></i> Keterangan</label>
+        <select id="remarks" name="keterangan" class="form-select" required>
+          <option value="" disabled selected>-</option>
+          <option value="Masuk">Masuk</option>
+          <option value="Ijin">ijin</option>
+          <option value="Pulang">Pulang</option>
+        </select>      
+        <button type="submit" class="btn btn-custom"><i class="bi bi-send"></i> Kirim</button>
+      </div>
+    </form>
+  </div>  
+  <div class="info-box hidden">
+    <div class="menu-header" id="menuHeader2">Absen Sales</div>
+<form id="absenForm" action="https://script.google.com/macros/s/AKfycbxJJtTkCY1w6yDeeW59MD9vyIAW0g7BxIrn1kNFcWRvd0GTi8XOEdZ6mtkIksITSa74Kw/exec" method="POST">
+  <div class="info-content" id="infoContent2">
+    <label for="name" class="form-label"><i class="bi bi-person icon-blue"></i> Nama</label>
+    <select id="name" name="nama" class="form-select" required>
+      <option value="" disabled selected>-</option>
+      <option value="Farhan">Farhan</option>
+      <option value="Basri">Basri</option>
+      <option value="Lutfi">Lutfi</option>
+      <option value="Ghazi">Ghazi</option>
+      <option value="Qosim">Qosim</option>
+      <option value="Wasil">Wasil</option>
+      <option value="Taufiq">Taufiq</option>
+      <option value="Ervan">Ervan</option>
+      <option value="Wafir">Wafir</option>
+      <option value="Mif">Mif</option>
+    </select>
+    <label for="day" class="form-label"><i class="bi bi-calendar-day icon-green"></i> Hari</label>
+    <select id="day" name="hari" class="form-select" required>
+      <option value="" disabled selected>-</option>
+      <option value="Ahad">Ahad</option>
+      <option value="Senin">Senin</option>
+      <option value="Selasa">Selasa</option>
+      <option value="Rabu">Rabu</option>
+      <option value="Kamis">Kamis</option>
+      <option value="Jumat">Jumat</option>
+      <option value="Sabtu">Sabtu</option>
+    </select>
+    <label for="remarks" class="form-label"><i class="bi bi-info-circle icon-yellow"></i> Keterangan</label>
+    <select id="remarks" name="keterangan" class="form-select" required>
+      <option value="" disabled selected>-</option>
+      <option value="Masuk">Masuk</option>
+      <option value="Ijin">ijin</option>
+    </select>      
+    <button type="submit" class="btn btn-custom"><i class="bi bi-send"></i> Kirim</button>
+  </div>
+</form>
+</div>
+    <!-- Right Side: Info Box -->
+    <div class="info-box">
+    <div class="menu-header" id="menuHeader3">
+      Jam Masuk
+    </div>
+    <div class="info-content" id="infoContent3">
+      <div class="info-item">
+        <i class="fas fa-sun"></i>
+        <div>
+          <h5>Shift Pagi</h5>
+          <p>06.30 - 14.00 WIB</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <i class="fas fa-sun"></i>
+        <div>
+          <h5>Shift Siang</h5>
+          <p>14.00 - 21.30 WIB</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <i class="fas fa-coffee"></i>
+        <div>
+          <h5>Istirahat</h5>
+          <p>Pulang ke rumah masing-masing</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-sticky-note"></i>
+        <div>
+          <h5>Catatan</h5>
+          <p>Jam Menggunakan WIB</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="info-box-3">
+    <div class="menu-header" id="menuHeader4">Rekap Absen Karyawan</div>
+    <div class="info-content" id="infoContent4">
+      <table id="rekapTable">
+        <thead>
+          <tr>
+                        <th>NO</th>
+            <th>NAMA</th>
+            <th>JAM</th>
+            <th>EFEKTIF</th>
+            <th>HADIR</th>
+            <th>TH</th>
+            <th>IJIN</th>
+            <th>PERSENTASE</th>
+            <th>POKOK</th>
+            <th>H</th>
+            <th>TOTAL</th>
+            <th>POTONGAN</th>
+            <th>KET</th>
+            <th>SISA</th>
+          </tr>
+        </thead>
+        <tbody id="dataBody">
+          <!-- Data akan diisi melalui JavaScript -->
+        </tbody>
+      </table>
+      <button id="downloadExcel" class="btn-custom">Download</button>
+    </div>
+  </div>
+</div>
+  <div class="info-box-4">
+    <div class="menu-header" id="menuHeader5">Rekap Absen Sales</div>
+    <div class="info-content" id="infoContent5">
+      <table>
+        <thead>
+          <tr>
+            <th>NO</th>
+            <th>NAMA</th>
+            <th>JAM</th>
+            <th>EFEKTIF</th>
+            <th>HADIR</th>
+            <th>TH</th>
+            <th>IJIN</th>
+            <th>PERSENTASE</th>
+            <th>POKOK</th>
+            <th>H</th>
+            <th>TOTAL</th>
+            <th>POTONGAN</th>
+            <th>KET</th>
+            <th>SISA</th>
+          </tr>
+        </thead>
+        <tbody id="dataBody">
+          <!-- Data akan diisi melalui JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="info-box-5">
+  <div class="header" style="text-align: center;">Catatan</div>
+  <div class="content">
+      <ul>
+        <li>Jangan lupa setiap Masuk & Pulang agar slalu Absen</li>
+        <li>Absen berhasil ketika sudah muncul "NOTIFIKASI" lalu klik "OK" </li>
+        <li>Masuk & Pulang harus sesuai dengan waktunya</li>
+        <li>Pendapatan Kasir & Pengeluaran perhari jangan lupa di catat di form laporan yang sudah disediakan</li>
+        <li>Untuk bagian Shift Malam sebelum pulang agar slalu menghitung Uang pendapatan dan di catat di form laporan yang sudah disediakan</li>
+        
+      </ul>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+    populateNamaDropdown();
+
+    // Function to populate Nama dropdown
+    function populateNamaDropdown() {
+        $.getJSON('https://script.google.com/macros/s/AKfycbxVriWmbgqRCmvphyQ5ae7tuS-4Zs3NfLlKbZH_n413nr0pVG_ayuR4TtDykqIVCwaP/exec?action=FetchData', function(data) {
+            const nameDropdown = $('#name');
+            nameDropdown.empty(); // Kosongkan dropdown
+            nameDropdown.append('<option value="" disabled selected>-</option>'); // Tambahkan opsi default
+
+            // Tambahkan opsi berdasarkan data API
+            data.forEach(function(row) {
+                if (row.Nama) {
+                    nameDropdown.append(`<option value="${row.Nama}">${row.Nama}</option>`);
+                }
+            });
+        });
+    }
+});
+
+
+document.getElementById("absenceForm").addEventListener("submit", handleFormSubmit);
+document.getElementById("absenForm").addEventListener("submit", handleFormSubmit);
+
+function handleFormSubmit(event) {
+  event.preventDefault(); // Prevent form from submitting normally
+
+  const form = this;
+  const formData = new FormData(form);
+
+  const scriptUrl = form.id === "absenceForm" ? 
+                    'https://script.google.com/macros/s/AKfycbyCb-uLZKP1fIG1qJcT0aAl0ZUTgjdQ_tJv5qf1HNRRGOgJyW1AUypb59Pf7ttzywz8/exec' :
+                    'https://script.google.com/macros/s/AKfycbyCb-uLZKP1fIG1qJcT0aAl0ZUTgjdQ_tJv5qf1HNRRGOgJyW1AUypb59Pf7ttzywz8/exec';
+
+  fetch(scriptUrl, {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+    alert('Absen Berhasil, Selamat Bekerja!');
+    form.reset(); // Clear the form fields
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Absen Berhasil, SEMANGAT! ' + error.message);
+    form.reset(); // Clear the form fields
+  });
+}
+
+// Function to toggle menu visibility
+function toggleMenu(menuContentId) {
+  const menuContent = document.getElementById(menuContentId);
+  menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+}
+
+// Add event listeners for menu headers
+const menuHeaders = ['menuHeader1', 'menuHeader2', 'menuHeader3', 'menuHeader4', 'menuHeader5'];
+const infoContents = ['infoContent1', 'infoContent2', 'infoContent3', 'infoContent4', 'infoContent5'];
+
+menuHeaders.forEach((header, index) => {
+  document.getElementById(header).addEventListener('click', () => {
+    toggleMenu(infoContents[index]);
+  });
+});
+
+// Initialize content display
+infoContents.forEach(contentId => {
+  document.getElementById(contentId).style.display = 'none';
+});
+function Menu() {
+      const menuContent = document.getElementById('menuContent');
+      menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+    }
+
+// Function to fetch and update data from URL
+function fetchDataFromURL() {
+  const scriptUrl1 = 'https://script.google.com/macros/s/AKfycby9ANxSJIg2suBMwCMEIKC3OdyIBx1Uv95SAZVwfAuXSxx7IVO5kAYf0jUn8Rf95EIwig/exec';
+
+  fetch(scriptUrl1)
+    .then(response => response.json())
+    .then(data => {
+      updateTable(data);
+    })
+    .catch(error => console.error('Error fetching data from URL:', error));
+}
+
+// Initial fetch
+fetchDataFromURL();
+
+// Update the table with data
+function updateTable(data) {
+  const tableBody = document.getElementById('dataBody');
+  let rows = '';
+
+  // Filter out rows with empty or incomplete data
+  const filteredData = data.filter(row => row && Object.values(row).some(value => value !== null && value !== ''));
+
+  filteredData.forEach((row, index) => {
+    rows += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${row.nama || ''}</td>
+        <td>${Math.round(row.jam || 0)}</td>
+        <td>${Math.round(row.efektif || 0)}</td>
+        <td>${Math.round(row.hadir || 0)}</td>
+        <td>${Math.round(row.th || 0)}</td>
+        <td>${Math.round(row.ijin || 0)}</td>
+        <td>${Math.round((row.persentase || 0) * 100)}%</td>
+        <td>${Math.round(row.pokok || 0)}</td>
+        <td>${Math.round(row.h || 0)}</td>
+        <td>${Math.round(row.total || 0)}</td>
+        <td>${Math.round(row.potongan || 0)}</td>
+        <td>${row.ket || ''}</td>
+        <td>${Math.round(row.sisa || 0)}</td>
+      </tr>
+    `;
+  });
+
+  tableBody.innerHTML = rows;
+}
+
+// Set interval to fetch data every 5 minutes (300,000 milliseconds)
+setInterval(fetchDataFromURL, 300000); // 5 minutes
+
+// Function to download table data as Excel
+function downloadExcel() {
+  const table = document.getElementById('rekapTable');
+  if (!table) {
+    console.error('Table not found!');
+    return;
+  }
+
+  // Convert the table to a workbook
+  const workbook = XLSX.utils.table_to_book(table, { sheet: 'Sheet1' });
+
+  // Write the workbook to a binary string
+  const excelFile = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
+
+  // Convert the binary string to a blob
+  const blob = new Blob([s2ab(excelFile)], { type: 'application/octet-stream' });
+
+  // Trigger the download
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'Rekap_Absen_Karyawan.xlsx';
+  link.click();
+}
+
+// Helper function to convert binary string to array buffer
+function s2ab(s) {
+  const buf = new ArrayBuffer(s.length);
+  const view = new Uint8Array(buf);
+  for (let i = 0; i < s.length; i++) {
+    view[i] = s.charCodeAt(i) & 0xFF;
+  }
+  return buf;
+}
+
+// Add event listener for download button
+document.getElementById('downloadExcel').addEventListener('click', downloadExcel);
+
+  </script>
+
+</body>
+</html>
